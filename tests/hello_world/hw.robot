@@ -3,14 +3,20 @@ Library           src/str_ex.py
 
 *** Variables ***
 ${line_equal}     Hello World!
+${NFF}            NFF
 
 *** Test Cases ***
-Correct
-    ${check}=     Check strings            ${line_equal}
-                  should be true           ${check}
+Find file
+    ${check}=           Check coincidence        ${line_equal}
+    should not be equal as strings      ${check}         ${NFF}
+
+Find coincidence
+    ${check}=       Check coincidence        ${line_equal}
+                    should not be equal as strings     ${check}    ${NFF}
+                    should be true           ${check}
 
 *** Keywords ***
-Check strings
+Check coincidence
     [Arguments]                            ${line}
     ${result}=    str_ex                   ${line}
     [Return]      ${result}
