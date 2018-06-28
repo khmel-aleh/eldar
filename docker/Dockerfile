@@ -27,8 +27,7 @@ VOLUME $TORS
 
 WORKDIR $TORS
 
-#CMD ["cd ../tests/hello_world"]
-#CMD ["tests"]
-#CMD ["pybot hw.robot"]
+CMD ["cd tests/hello_world"]
+CMD ["pybot hw.robot"]
 
 #ENTRYPOINT ["pybot", "-i", "debug", "-b", "Debug.log", "-d", "Debug", "-P", ".", "-P", "core"]
